@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+  postgres:
+    container_name: blog-saude
+    image: postgres:11.5
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=blog-saude
+      - POSTGRES_PASSWORD=blog-saude
+      - POSTGRES_DB=blog-saude
