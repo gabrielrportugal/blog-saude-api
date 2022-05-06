@@ -1,20 +1,6 @@
-<p align="center">
-
-  <img alt="Language" src="https://img.shields.io/github/languages/top/TCC-SMIA/server?style=for-the-badge">
-
-  <a href="https://github.com/TCC-SMIA/server" target="_blank">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/TCC-SMIA/server?style=for-the-badge">
-  </a>
-
-   <a href="https://github.com/TCC-SMIA/server/stargazers" target="_blank">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/TCC-SMIA/server?style=for-the-badge">
-  </a>
-
-</p>
-
 ## 💻&nbsp;&nbsp; Project
 
-An API Rest to be the Back-end of an application to make complaints about any irregularity in the environment.
+An API Rest to be the Back-end of an application to create posts.
 
 ## 🚀&nbsp;&nbsp; Technologies
 
