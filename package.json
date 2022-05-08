@@ -4,9 +4,10 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
+        "run:database" : "docker-compose up -d",
         "start": "node dist/shared/infra/http/server.js",
         "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
-        "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
+        "dev": "yarn run:database && ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
         "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
         "test": "jest --passWithNoTests --watch",
         "test:staged": "jest --passWithNoTests --findRelatedTests --collectCoverage=false",
@@ -14,6 +15,7 @@
         "lint:fix": "yarn lint --fix --quiet",
         "lint": "eslint src/ --ext .ts",
         "test:ci": "jest --passWithNoTests"
+
     },
     "dependencies": {
         "axios": "^0.19.2",

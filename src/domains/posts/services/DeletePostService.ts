@@ -21,7 +21,7 @@ class DeletePostService {
     const post = await this.postsRepository.findById(post_id);
 
     if (!post) {
-      throw new AppError('Complaint not found.');
+      throw new AppError('Post not found.');
     }
 
     if (post.user_id !== user_id) {

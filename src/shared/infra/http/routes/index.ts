@@ -2,7 +2,7 @@ import { Router, Request, Response } from 'express';
 
 import userRoutes from '@domains/users/infra/http/routes/users.routes';
 import sessionsRoutes from '@domains/users/infra/http/routes/sessions.routes';
-import complaintsRoutes from '@domains/posts/infra/http/routes/complaints.routes';
+import postsRoutes from '@domains/posts/infra/http/routes/posts.routes';
 
 const routes = Router();
 
@@ -14,7 +14,7 @@ routes.get('/', (_: Request, res: Response) => {
 });
 
 routes.use('/users', userRoutes);
-routes.use('/posts', complaintsRoutes);
+routes.use('/posts', postsRoutes);
 routes.use('/sessions', sessionsRoutes);
 
 export default routes;

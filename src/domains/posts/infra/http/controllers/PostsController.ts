@@ -74,13 +74,13 @@ class PostsController {
 
   public async delete(request: Request, response: Response): Promise<Response> {
     const user_id = request.user.id;
-    const { post_id } = request.query;
+    const { post_id } = request.body;
 
     const deletePostService = container.resolve(DeletePostService);
 
     await deletePostService.execute({
       user_id,
-      post_id: post_id as string,
+      post_id,
     });
 
     return response.status(204).json();

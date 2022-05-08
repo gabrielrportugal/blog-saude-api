@@ -13,12 +13,12 @@ export const createSession = {
       required: true,
       schema: {
         type: 'object',
-        required: ['nickname', 'password'],
+        required: ['email', 'password'],
         properties: {
-          nickname: {
+          email: {
             type: 'string',
             example: 'doggie',
-            description: 'Nome de usuário',
+            description: 'Email do usuário',
           },
           password: {
             type: 'string',
@@ -49,19 +49,18 @@ export const createSession = {
                     type: 'string',
                     description: 'Nome do usuário',
                   },
-                  nickname: {
-                    type: 'string',
-                    description: 'Apelido do usuário',
-                  },
                   email: {
                     type: 'string',
                     format: 'email',
                     description: 'Email do usuário',
                   },
-                  type: {
+                  created_at: {
                     type: 'string',
-                    format: 'string',
-                    description: 'Tipo do usuário',
+                    description: 'Data de criação do usuário',
+                  },
+                  updated_at: {
+                    type: 'string',
+                    description: 'Data de atualização do usuário',
                   },
                 },
               },

@@ -36,6 +36,7 @@ class CreatePostService {
       title,
       description,
       category_id: category.id,
+      category,
     });
 
     return classToClass(post);

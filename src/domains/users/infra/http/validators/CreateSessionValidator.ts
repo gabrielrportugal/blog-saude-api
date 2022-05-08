@@ -13,7 +13,7 @@ const createSessionValidator = async (
 
   try {
     const userSchema = Yup.object().shape({
-      login: Yup.string().required('Please type your login and try again'),
+      email: Yup.string().required('Please type your login and try again'),
       password: Yup.string()
         .min(6, 'At least 6 characters in the password field')
         .required('Password is a required field'),

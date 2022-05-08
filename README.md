@@ -18,11 +18,16 @@ This project is being developed using these technologies:
 ## :gear:&nbsp;&nbsp; Installing this project
 
 - Make sure you have NodeJS installed on your machine.
+- Make sure you have Docker and Docker Compose installed on your machine.
 - Download or clone this project.
-- Create a PostgreSQL database called `blog-saude`.
 - If you are using Yarn as a package manager.
   - Run `yarn` to install all the necessary dependencies.
-  - Run `yarn dev:server` to start the Server.
+  - Run `yarn dev` to start the Server.
+  - It will create a database called `blog-saude` with docker-compose.
 - After all the instructions you can see the server running on port http://localhost:3333.
+- API Documentation at http://localhost:3333/api/docs .
+
+- You can test the project running `yarn test` after install all the necessary dependencies.
+- The test coverage can be found at `/coverage/lcov-report/index.html`.
 
 

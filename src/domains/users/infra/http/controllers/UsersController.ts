@@ -10,13 +10,12 @@ import DeleteProfileService from '@domains/users/services/DeleteProfileService';
 
 class UsersController {
   async create(request: Request, response: Response): Promise<Response> {
-    const { name, nickname, email, password } = request.body;
+    const { name, email, password } = request.body;
 
     const createUserService = container.resolve(CreateUserService);
 
     const newUser = await createUserService.execute({
       name,
-      nickname,
       email,
       password,
     });
@@ -28,7 +27,6 @@ class UsersController {
     const user_id = request.user.id;
     const {
       name,
-      nickname,
       email,
       oldpassword,
       password,
@@ -40,7 +38,6 @@ class UsersController {
     const user = await updateProfileService.execute({
       user_id,
       name,
-      nickname,
       email,
       oldpassword,
       password,

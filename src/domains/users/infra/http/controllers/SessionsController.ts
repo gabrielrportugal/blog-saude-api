@@ -5,12 +5,12 @@ import AuthenticateUserService from '@domains/users/services/AuthenticateUserSer
 
 class SessionsController {
   public async create(request: Request, response: Response) {
-    const { login, password } = request.body;
+    const { email, password } = request.body;
 
     const authenticateUserService = container.resolve(AuthenticateUserService);
 
     const { user, token } = await authenticateUserService.execute({
-      login,
+      login: email,
       password,
     });
 

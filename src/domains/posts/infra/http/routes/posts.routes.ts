@@ -4,25 +4,21 @@ import PostsController from '@domains/posts/infra/http/controllers/PostsControll
 import PostsByUserController from '@domains/posts/infra/http/controllers/PostsByUserController';
 
 import ensureAuthenticate from '@domains/users/infra/http/middlewares/ensureAuthenticate';
-import resolveComplaintValidator from '../validators/ResolvePostValidator';
+import resolvePostValidator from '../validators/ResolvePostValidator';
 
-const complaintsRoutes = Router();
+const postsRoutes = Router();
 
-complaintsRoutes.use(ensureAuthenticate);
+postsRoutes.use(ensureAuthenticate);
 
-complaintsRoutes.put(
-  '/update',
-  resolveComplaintValidator,
-  PostsController.update,
-);
+postsRoutes.put('/update', resolvePostValidator, PostsController.update);
 
-complaintsRoutes.get('/', PostsController.index);
-complaintsRoutes.get('/myposts', PostsController.index);
+postsRoutes.get('/', PostsController.index);
+postsRoutes.post('/', PostsController.create);
 
-complaintsRoutes.delete('/delete', PostsController.delete);
+postsRoutes.delete('/delete', PostsController.delete);
 
-complaintsRoutes.get('/:post_id', PostsController.show);
+postsRoutes.get('/my-posts', PostsByUserController.index);
 
-complaintsRoutes.get('/activities/resume', PostsByUserController.index);
+postsRoutes.get('/:post_id', PostsController.show);
 
-export default complaintsRoutes;
+export default postsRoutes;
