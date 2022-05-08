@@ -23,16 +23,16 @@ class PostsRepository implements IPostsRepository {
   }
 
   public async findById(postId: string): Promise<Post | undefined> {
-    const complaint = await this.postsRepository.findOne({
+    const post = await this.postsRepository.findOne({
       where: { id: postId },
       relations: ['user', 'category'],
     });
 
-    return complaint;
+    return post;
   }
 
   public async findAllByUserId(user_id: string): Promise<Post[]> {
-    const complaints = await this.postsRepository.find({
+    const posts = await this.postsRepository.find({
       where: { user_id },
       relations: ['user', 'category'],
       order: {
@@ -40,11 +40,11 @@ class PostsRepository implements IPostsRepository {
       },
     });
 
-    return complaints;
+    return posts;
   }
 
   public async findAllPosts(skip: number, take: number): Promise<Post[]> {
-    const complaints = await this.postsRepository.find({
+    const posts = await this.postsRepository.find({
       skip,
       take,
       order: {
@@ -53,7 +53,7 @@ class PostsRepository implements IPostsRepository {
       relations: ['user', 'category'],
     });
 
-    return complaints;
+    return posts;
   }
 
   public async delete(post: Post): Promise<void> {

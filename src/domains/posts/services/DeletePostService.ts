@@ -25,9 +25,7 @@ class DeletePostService {
     }
 
     if (post.user_id !== user_id) {
-      throw new AppError(
-        'A user can only delete a complaint that have created.',
-      );
+      throw new AppError('A user can only delete a post that have created.');
     }
 
     await this.postsRepository.delete(post);

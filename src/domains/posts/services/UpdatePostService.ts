@@ -36,7 +36,7 @@ class UpdatePostService {
     const category = await this.categoriesRepository.findByName(category_name);
 
     if (!post) {
-      throw new AppError('Complaint not found.');
+      throw new AppError('Post not found.');
     }
 
     if (post.user_id !== user_id) {

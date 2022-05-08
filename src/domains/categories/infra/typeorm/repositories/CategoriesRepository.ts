@@ -11,25 +11,25 @@ class CategoriesRepository implements ICategoriesRepository {
   }
 
   public async create(categoryData: Partial<Category>): Promise<Category> {
-    const complaint = this.categoriesRepository.create(categoryData);
+    const category = this.categoriesRepository.create(categoryData);
 
-    const createdComplaint = await this.categoriesRepository.save(complaint);
+    const createdCategory = await this.categoriesRepository.save(category);
 
-    return createdComplaint;
+    return createdCategory;
   }
 
   public async findByName(categoryName: string): Promise<Category> {
-    const complaint = await this.categoriesRepository.findOne({
+    const category = await this.categoriesRepository.findOne({
       where: { name: categoryName },
     });
 
-    if (!complaint) {
-      const createdComplaint = await this.create({ name: categoryName });
+    if (!category) {
+      const createdCategory = await this.create({ name: categoryName });
 
-      return createdComplaint;
+      return createdCategory;
     }
 
-    return complaint;
+    return category;
   }
 }
 

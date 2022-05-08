@@ -12,7 +12,7 @@ let createPostService: CreatePostService;
 let fakeUsersRepository: IUsersRepository;
 let fakeCategoriesRepository: ICategoriesRepository;
 
-describe('CreateComplaintService', () => {
+describe('CreatePostService', () => {
   beforeEach(() => {
     fakePostsRepository = new FakePostsRepository();
     fakeUsersRepository = new FakeUsersRepository();
@@ -24,19 +24,19 @@ describe('CreateComplaintService', () => {
     );
   });
 
-  it('should be able to create a complaint', async () => {
+  it('should be able to create a post', async () => {
     const user = await fakeUsersRepository.create(userMock);
 
-    const complaint = await createPostService.execute({
+    const post = await createPostService.execute({
       user_id: user.id,
-      title: 'test complaint created',
-      description: 'description of complaint created',
+      title: 'test post created',
+      description: 'description of post created',
       category_name: 'public',
     });
 
-    expect(complaint).toBeTruthy();
-    expect(complaint.id).toBeTruthy();
-    expect(complaint.title).toBe('test complaint created');
-    expect(complaint.description).toBe('description of complaint created');
+    expect(post).toBeTruthy();
+    expect(post.id).toBeTruthy();
+    expect(post.title).toBe('test post created');
+    expect(post.description).toBe('description of post created');
   });
 });
